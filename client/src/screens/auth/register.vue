@@ -1,29 +1,10 @@
 <template>
-  <div
-    class="
-      flex flex-col
-      justify-center
-      bg-red-600
-      overflow-hidden
-      min-h-screen
-    "
-  >
+  <div class="flex flex-col justify-center bg-red-600 overflow-hidden min-h-screen">
     <div class="mt-16 sm:mt-24 lg:mt-0 lg:col-span-8">
-      <div
-        class="
-              bg-white
-              sm:max-w-md
-              sm:w-full
-              sm:mx-auto
-              sm:rounded-lg
-              sm:overflow-hidden
-            "
-      >
+      <div class="bg-white sm:max-w-md sm:w-full sm:mx-auto sm:rounded-lg sm:overflow-hidden">
         <div class="px-4 py-8 sm:px-10">
           <div>
-            <h2 class="mb-4 text-center text-3xl font-medium text-gray-500">
-              Sign Up
-            </h2>
+            <h2 class="mb-4 text-center text-3xl font-medium text-gray-500">Sign Up</h2>
           </div>
           <div class="mt-6">
             <ValidationObserver v-slot="{ handleSubmit }">
@@ -101,9 +82,7 @@
                     </t-input-group>
                   </ValidationProvider>
                 </div>
-                <t-button type="submit">
-                  Sign Up
-                </t-button>
+                <t-button type="submit"> Sign Up </t-button>
               </form>
             </ValidationObserver>
             <div class="flex items-center mt-4">
@@ -119,7 +98,7 @@
 </template>
 <script>
 export default {
-  name: 'Register',
+  name: "Register",
   data() {
     return {
       user: {},
@@ -127,13 +106,14 @@ export default {
   },
   methods: {
     async attemptSignUp() {
-      const response = await this.$http.post('api/users/', this.user);
+      const response = await this.$http.post("api/users/", this.user);
+      console.log(response);
       if (response) {
         this.$toast.show({
-          content: 'Your have been registered successfully, please login and continue.',
-          type: 'success',
+          content: "Your have been registered successfully, please login and continue.",
+          type: "success",
         });
-        this.$router.push({ name: 'Login' });
+        this.$router.push({ name: "Login" });
       }
     },
   },
